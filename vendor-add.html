@@ -92,15 +92,50 @@
                                     <input type="text" class="form-control" id="vendorName" name="vendorName" placeholder="Enter vendor name" required>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label for="category" class="form-label">Category<span class="star-required">*</span></label>
-                                    <select class="form-select" id="category" name="category" required>
-                                        <option value="">Select</option>
-                                        <option value="">Manufacturer</option>
-                                        <option value="">Wholesaler</option>
-                                        <option value="">Importer</option>
-                                        <option value="others">Others</option>
-                                    </select>    
+                                    <label for="vendorType" class="form-label">Vendor Type<span class="star-required">*</span></label>
+                                    <select class="form-select" id="vendorType" name="vendorType[]" multiple data-placeholder="Select options..."
+                                    data-search="true" required>
+                                        <option value="manufacturer">Manufacturer</option>
+                                        <option value="wholesaler">Wholesaler</option>
+                                        <option value="Trader">Trader</option>
+                                        <option value="service">Service Provider</option>
+                                        <option value="logistics">Logistics Provider</option>
+                                        <option value="distributor"> IT & Technology</option>
+                                        <option value="contractor">Contractor</option>
+                                        <option value="other">Other</option>
+                                    </select> 
                                 </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="category" class="form-label">Category<span class="star-required">*</span></label>
+                                    <select class="form-select" id="category" name="category[]" multiple data-placeholder="Select options..."
+                                    data-search="true" required>
+                                        <option value=""> Raw Material</option>
+                                        <option value="">Manufacturing & Components</option>
+                                        <option value=""> IT & Technology</option>
+                                        <option value="">Office & General Supplies</option>
+                                        <option value="">Packaging</option>
+                                        <option value="">Construction & Facilities</option>
+                                        <option value="">Professional Services</option>
+                                        <option value="">Maintenance & Repair</option>
+                                        <option value="other">Other</option>
+                                    </select> 
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="subCategory" class="form-label">Sub Category<span class="star-required">*</span></label>
+                                    <select class="form-select" id="subCategory" name="subCategory[]" multiple data-placeholder="Select options..."
+                                    data-search="true" required>
+                                        <option value=""> Metals & Steel</option>
+                                        <option value="">Plastics & Rubber</option>
+                                        <option value="">Chemicals</option>
+                                        <option value="">Glass</option>
+                                        <option value="">Paper & Packaging</option>
+                                        <option value="">Electrical Components</option>
+                                        <option value="">Electronic Components</option>
+                                        <option value="">Electronic Components</option>
+                                        <option value="">Office Furniture</option>
+                                    </select> 
+                                </div>
+                                
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                     <label for="contactPersonName" class="form-label">Contact Person Name<span class="star-required">*</span></label>
                                     <input type="text" class="form-control" id="contactPersonName" name="contactPersonName" placeholder="Enter contact person name" required>
@@ -116,6 +151,23 @@
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                     <label for="contactNumber2" class="form-label">Alternate Contact Number</label>
                                     <input type="number" class="form-control" id="contactNumber2" name="contactNumber2" placeholder="10 digits only" maxlength="10">
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <div class="textarea-counter-wrapper">
+                                        <label for="description" class="form-label">
+                                            Business Description
+                                        </label>
+                                        <textarea class="form-control" id="description" name="description"  maxlength="500" placeholder="Type business description here..."></textarea>
+                                        <div class="form-text text-end">
+                                            <span class="textarea-count">0</span>/<span class="textarea-max">500</span>
+                                        </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="website" class="form-label">
+                                        Website URL
+                                    </label>
+                                       <input type="url" class="form-control" id="website" placeholder="https://website.com">    
                                 </div>
                             </div>
                             <div class="row g-4 mt-1">
@@ -229,8 +281,8 @@
 
                             <div class="row g-4">
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label for="bankName" class="form-label">Bank Name<span class="star-required">*</span></label>
-                                    <select class="form-select searchable-select" name="bankName" id="bankName" required>
+                                    <label for="bankName" class="form-label">Bank Name</label>
+                                    <select class="form-select searchable-select" name="bankName" id="bankName">
                                        <option value=""></option>
                                         <option value="AIRTEL PAYMENT BANK">AIRTEL PAYMENT BANK</option>
                                         <option value="ALLAHABAD BANK">ALLAHABAD BANK</option>
@@ -292,16 +344,16 @@
                                    </select>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label for="bankBranch" class="form-label">Bank Branch<span class="star-required">*</span></label>
-                                    <input type="text" class="form-control" id="bankBranch" name="bankBranch" placeholder="Enter bank branch" required>
+                                    <label for="bankBranch" class="form-label">Bank Branch</label>
+                                    <input type="text" class="form-control" id="bankBranch" name="bankBranch" placeholder="Enter bank branch">
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label for="bankAccountNumber" class="form-label">Bank Account Number<span class="star-required">*</span></label>
-                                    <input type="number" class="form-control" id="bankAccountNumber" name="bankAccountNumber" placeholder="Enter bank account number" required>
+                                    <label for="bankAccountNumber" class="form-label">Bank Account Number</label>
+                                    <input type="number" class="form-control" id="bankAccountNumber" name="bankAccountNumber" placeholder="Enter bank account number">
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label for="ifscCode" class="form-label">IFSC Code<span class="star-required">*</span></label>
-                                    <input type="text" class="form-control" id="ifscCode" name="ifscCode" placeholder="Enter IFSC code" required>
+                                    <label for="ifscCode" class="form-label">IFSC Code</label>
+                                    <input type="text" class="form-control" id="ifscCode" name="ifscCode" placeholder="Enter IFSC code">
                                 </div>
                                 <div class="col-12 mt-1 d-print-none">
                                     <p class="text-end pt-2">

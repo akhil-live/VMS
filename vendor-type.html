@@ -8,14 +8,14 @@
     <!-- Breadcrumb -->
      <section class="page-inner d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-3">
          <div class="page-heading">
-             <h1 class="page-title">Vendors</h1>
+             <h1 class="page-title">Vendor Types</h1>
              <nav aria-label="breadcrumb">
                  <ol class="breadcrumb">
                      <li class="breadcrumb-item">
                          <a href="{% url 'dashboard' %}">Dashboard</a>
                      </li>
                      <li class="breadcrumb-item">
-                        Vendors
+                        Vendor Types
                      </li>
                  </ol>
              </nav>
@@ -33,7 +33,7 @@
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg>
                 </button>
                 
-                <a href="{% url 'vendor-add' %}">
+                <a href="{% url 'vendor-type-add' %}">
                     <button type="button" class="btn btn-xs btn-primary app-open-btn my-1 ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add ULB">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
                     </button>
@@ -82,82 +82,46 @@
      
          <!-- Table -->
          <div class="table-responsive" id="printableArea">
-             <table id="basic-datatables" class="table table-hover table-bordered align-middle mb-0">
-                 <thead class="table-primary">
-                     <tr>
-                         <th class="text-center">#</th>
-                         <th>Vendor Code</th>
-                         <th>Vendor Business Name</th>
-                         <th>Category</th>
-                         <th>Contact Person</th>
-                         <th>Contact Number</th>
-                         <th>City</th>
-                         <th>State</th>
-                         <th>Date</th>
-                         <th>Status</th>
-                         <th>Action</th>
-                     </tr>
-                 </thead>
-                 <tbody>
+            <table id="basic-datatables" class="table table-hover table-bordered align-middle mb-0">
+                <thead class="table-primary">
                     <tr>
-                        <td class="text-center">1</td>
-                        <td>VMS-12345</td>
-                        <td>JAI SHREE CORPORATION</td>
-                        <td>Manufacturer</td>
-                        <td>SANJAY GUPTA</td>
-                        <td>9876543210</td>
-                        <td>JAIPUR</td>
-                        <td>RAJASTHAN</td>
-                        <td>06-10-2026</td>
-                        <td>
-                            <span class="badge text-bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Active">
-                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM17.4571 9.45711L16.0429 8.04289L11 13.0858L8.20711 10.2929L6.79289 11.7071L11 15.9142L17.4571 9.45711Z"></path></svg>
-                            </span>
-                        </td>
-                        <td>
-                            <a href="{% url 'vendor-profile' %}" class="d-print-none">
-                                <button type="button" class="btn btn-xs btn-primary app-open-btn my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>
-                                </button>
-                            </a>
-                            <a href="{% url 'vendor-add' %}" class="d-print-none">
-                                <button type="button" class="btn btn-xs btn-success app-open-btn my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.41421 15.89L16.5563 5.74785L15.1421 4.33363L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6473L14.435 2.21231C14.8256 1.82179 15.4587 1.82179 15.8492 2.21231L18.6777 5.04074C19.0682 5.43126 19.0682 6.06443 18.6777 6.45495L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path></svg>
-                                </button>
-                            </a> 
-                        </td>
-                    </tr>                                  
-                    <tr>
-                        <td class="text-center">2</td>
-                        <td>VMS-12389</td>
-                        <td>AMBEY COMPANY </td>
-                        <td>Manufacturer</td>
-                        <td>PREET SHARMA</td>
-                        <td>8876543001</td>
-                        <td>JODHPUR</td>
-                        <td>RAJASTHAN</td>
-                        <td>06-10-2026</td>
-                        <td>
-                             <span class="badge text-bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Active">
-                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM17.4571 9.45711L16.0429 8.04289L11 13.0858L8.20711 10.2929L6.79289 11.7071L11 15.9142L17.4571 9.45711Z"></path></svg>
-                             </span>
-                        </td>
-                        <td>
-                            <a href="{% url 'vendor-profile' %}" class="d-print-none">
-                                <button type="button" class="btn btn-xs btn-primary app-open-btn my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>
-                                </button>
-                            </a>
-                            <a href="{% url 'vendor-add' %}" class="d-print-none">
-                                <button type="button" class="btn btn-xs btn-success app-open-btn my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
-                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.41421 15.89L16.5563 5.74785L15.1421 4.33363L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6473L14.435 2.21231C14.8256 1.82179 15.4587 1.82179 15.8492 2.21231L18.6777 5.04074C19.0682 5.43126 19.0682 6.06443 18.6777 6.45495L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path></svg>
-                                </button>
-                            </a>
-                        </td>
-                    </tr>                                  
-                 </tbody>
-             </table>
-         </div>
+                        <th class="text-center">#</th>
+                        <th>Type Code</th>
+                        <th>Type Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                   <tr>
+                       <td class="text-center">1</td>
+                       <td>TY132</td>
+                       <td>Manufacturer</td>
+                       <td>06-10-2026</td>
+                       <td>
+                           <span class="badge text-bg-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Active">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12ZM12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM17.4571 9.45711L16.0429 8.04289L11 13.0858L8.20711 10.2929L6.79289 11.7071L11 15.9142L17.4571 9.45711Z"></path></svg>
+                           </span>
+                       </td>
+                       <td>
+                           <a href="{% url 'vendor-type-view' %}" class="d-print-none">
+                               <button type="button" class="btn btn-xs btn-primary app-open-btn my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"></path></svg>
+                               </button>
+                           </a>
+                           <a href="{% url 'vendor-type-add' %}" class="d-print-none">
+                               <button type="button" class="btn btn-xs btn-success app-open-btn my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.41421 15.89L16.5563 5.74785L15.1421 4.33363L5 14.4758V15.89H6.41421ZM7.24264 17.89H3V13.6473L14.435 2.21231C14.8256 1.82179 15.4587 1.82179 15.8492 2.21231L18.6777 5.04074C19.0682 5.43126 19.0682 6.06443 18.6777 6.45495L7.24264 17.89ZM3 19.89H21V21.89H3V19.89Z"></path></svg>
+                               </button>
+                           </a> 
+                       </td>
+                   </tr>           
+
+                </tbody>
+            </table>
+        </div>
          <!-- Footer -->
          <div class="card-body d-print-none">
              <div class="row align-items-center g-3">
