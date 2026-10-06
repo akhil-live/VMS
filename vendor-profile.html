@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}VMS Panel{% endblock %}
+
+{% block content %}
+<main class="content">
+    <!-- Breadcrumb -->
+    <section class="page-inner d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-3">
+         <div class="page-heading">
+             <h1 class="page-title">Vendor Profile</h1>
+             <nav aria-label="breadcrumb">
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item">
+                         <a href="{% url 'dashboard' %}">Dashboard</a>
+                     </li>
+                     <li class="breadcrumb-item">
+                        <a href="{% url 'vendors' %}">Vendors</a>
+                    </li>
+                     <li class="breadcrumb-item">
+                        Vendor Profile
+                     </li>
+                 </ol>
+             </nav>
+         </div>
+    </section>
+
+    <section class="mb-4">
+        <div class="card">
+            <div class="card-body p-4">
+                <div class="section-heading">
+                    <h2>
+                        Vendor Profile
+                     </h2>
+                </div>
+                <div class="profile-card">
+                    <!-- TABS -->
+                    <div class="tabs-wrapper">
+                        <ul class="nav nav-tabs employee-tabs" id="employeeTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab">
+                                    <span class="tab-number">1</span>
+                                    Basic Information
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="accounts-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#accounts"
+                                    type="button"
+                                    role="tab">
+        
+                                    <span class="tab-number">2</span>
+                                    Bank
+        
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="documents-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#documents"
+                                    type="button"
+                                    role="tab">
+        
+                                    <span class="tab-number">3</span>
+                                    Documents
+        
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- TAB CONTENT -->
+                    <div class="tab-content form-content">
+                        <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+                            <div class="section-heading">
+                                <p>
+                                    Vendor's Business and contact inforamtion
+                                </p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="vendorCode" class="form-label">Vendor Code</label>
+                                    <p>VMS-12345</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="vendorName" class="form-label">Vendor Business Name</label>
+                                    <p>JAI SHREE CORPORATION</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="category" class="form-label">Category</label>
+                                    <p>Manufacturer</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="contactPersonName" class="form-label">Contact Person Name</label>
+                                    <p>SANJAY GUPTA</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="emailId" class="form-label">Email ID</label>
+                                    <p>jsc@gmail.com</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="contactNumber1" class="form-label">Contact Number</label>
+                                    <p>9876543210</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="contactNumber2" class="form-label">Alternate Contact Number</label>
+                                    <p>8876543211</p>
+                                </div>
+                            </div>
+                            <div class="row g-4 mt-1">
+                                
+                                
+                                <div class="col-12 section-inner-heading">
+                                    <h4>Business Address</h4>                             
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <div class="textarea-counter-wrapper">
+                                        <label for="address" class="form-label">
+                                            Address
+                                        </label>
+                                        <p>89, PRADHAN MARG, CALGIRI MARG, BLOCK-B, SECTOR 4, MALVIYA NAGAR</p>
+                                    </div>
+                                 </div>
+                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="city" class="form-label">City</label>
+                                    <p>JAIPUR</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="state" class="form-label">State</label>
+                                    <p>RAJASTHAN</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="pincode" class="form-label">Pincode</label>
+                                    <p>302001</p>
+                                </div>
+                                
+                                <div class="col-12 section-inner-heading">
+                                    <h4>Business Information</h4>                             
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="panNumber" class="form-label">Pan Number</label>
+                                    <p>123CYZ123</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="gstNumber" class="form-label">GST Number</label>
+                                    <p>24AAAGM0289XYZ9</p>
+                                </div>
+                                <div class="col-12 section-inner-heading">
+                                    <h4>Account Status</h4>                             
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label class="form-label">
+                                        Status
+                                    </label><br>
+                                    <p><span class="badge text-bg-primary fs-6">Active</span></p>
+                                </div>
+                                
+                            </div>                                     
+
+                        </div>
+
+                        <div class="tab-pane fade" id="accounts" role="tabpanel" aria-labelledby="accounts-tab">
+                            <div class="section-heading">
+                                <p>
+                                    Vendor's Business banking information
+                                </p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="bankName" class="form-label">Bank Name</label>
+                                    <p>KOTAK MAHINDRA BANK</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="bankBranch" class="form-label">Bank Branch</label>
+                                    <p>Sanganer</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="bankAccountNumber" class="form-label">Bank Account Number</label>
+                                    <p>22345678900</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="ifscCode" class="form-label">IFSC Code</label>
+                                    <p>KMB001</p>
+                                </div>
+                                <div class="col-12 mt-1 d-print-none">
+                                    <p class="text-end pt-2">
+                                        <button type="button" class="btn btn-primary btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"></path></svg>
+                                        </button>
+                                    </p>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+                            <div class="section-heading">
+                                <p>
+                                    Required documents
+                                </p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="documentName" class="form-label">Document Name</label>
+                                    <p>PAN CARD</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label class="form-label">
+                                        Upload Document
+                                    </label>
+                                    <p>
+                                        <button type="button" class="btn btn-primary btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="View Image">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 8V4H5V20H19V8H15ZM3 2.9918C3 2.44405 3.44749 2 3.9985 2H16L20.9997 7L21 20.9925C21 21.5489 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918ZM11 9.5C11 10.3284 10.3284 11 9.5 11C8.67157 11 8 10.3284 8 9.5C8 8.67157 8.67157 8 9.5 8C10.3284 8 11 8.67157 11 9.5ZM17.5 17L13.5 10L8 17H17.5Z"></path></svg>
+                                        </button>
+                                    </p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <div class="textarea-counter-wrapper">
+                                        <label for="remark" class="form-label">
+                                            Remark
+                                        </label>
+                                        <p>CHECKED</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-1 d-print-none">
+                                    <p class="text-end pt-2">
+                                        <button type="button" class="btn btn-primary btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"></path></svg>
+                                        </button>
+                                    </p>
+                                </div> 
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-footer mt-4 d-print-none">
+                        <p class="text-center pt-2">
+                            <button type="submit" class="btn btn-primary btn-sm">Next</button>
+                        </p>
+                    </div>              
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+</main>
+{% endblock %}

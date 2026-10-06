@@ -1,0 +1,408 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}VMS Panel{% endblock %}
+
+{% block content %}
+<main class="content">
+    <!-- Breadcrumb -->
+    <section class="page-inner d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-3">
+         <div class="page-heading">
+             <h1 class="page-title">Add Vendor</h1>
+             <nav aria-label="breadcrumb">
+                 <ol class="breadcrumb">
+                     <li class="breadcrumb-item">
+                         <a href="{% url 'dashboard' %}">Dashboard</a>
+                     </li>
+                     <li class="breadcrumb-item">
+                        <a href="{% url 'vendors' %}">Vendors</a>
+                    </li>
+                     <li class="breadcrumb-item">
+                        Add Vendor
+                     </li>
+                 </ol>
+             </nav>
+         </div>
+    </section>
+
+    <section class="mb-4">
+        <div class="card">
+            <div class="card-body p-4">
+                <div class="section-heading">
+                    <h2>
+                        Add Vendor
+                    </h2>
+                </div>
+                <div class="profile-card">
+                    <!-- TABS -->
+                    <div class="tabs-wrapper">
+                        <ul class="nav nav-tabs employee-tabs" id="employeeTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab">
+                                    <span class="tab-number">1</span>
+                                    Basic Information
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="accounts-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#accounts"
+                                    type="button"
+                                    role="tab">
+        
+                                    <span class="tab-number">2</span>
+                                    Bank
+        
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="documents-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#documents"
+                                    type="button"
+                                    role="tab">
+        
+                                    <span class="tab-number">3</span>
+                                    Documents
+        
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- TAB CONTENT -->
+                    <div class="tab-content form-content">
+                        <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+                            <div class="section-heading">
+                                <p>
+                                    Vendor's Business and contact inforamtion
+                                </p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="vendorCode" class="form-label">Vendor Code<span class="star-required">*</span></label>
+                                    <input type="text" class="form-control" id="vendorCode" name="vendorCode" placeholder="Enter vendor code" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="vendorName" class="form-label">Vendor Business Name<span class="star-required">*</span></label>
+                                    <input type="text" class="form-control" id="vendorName" name="vendorName" placeholder="Enter vendor name" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="category" class="form-label">Category<span class="star-required">*</span></label>
+                                    <select class="form-select" id="category" name="category" required>
+                                        <option value="">Select</option>
+                                        <option value="">Manufacturer</option>
+                                        <option value="">Wholesaler</option>
+                                        <option value="">Importer</option>
+                                        <option value="others">Others</option>
+                                    </select>    
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="contactPersonName" class="form-label">Contact Person Name<span class="star-required">*</span></label>
+                                    <input type="text" class="form-control" id="contactPersonName" name="contactPersonName" placeholder="Enter contact person name" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="emailId" class="form-label">Email ID</label>
+                                    <input type="email" class="form-control" id="emailId" name="emailId" placeholder="Enter email id">
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="contactNumber1" class="form-label">Contact Number<span class="star-required">*</span></label>
+                                    <input type="number" class="form-control" id="contactNumber1" name="contactNumber1" placeholder="10 digits only" maxlength="10" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="contactNumber2" class="form-label">Alternate Contact Number</label>
+                                    <input type="number" class="form-control" id="contactNumber2" name="contactNumber2" placeholder="10 digits only" maxlength="10">
+                                </div>
+                            </div>
+                            <div class="row g-4 mt-1">
+                                
+                                
+                                <div class="col-12 section-inner-heading">
+                                    <h4>Business Address</h4>                             
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <div class="textarea-counter-wrapper">
+                                        <label for="address" class="form-label">
+                                            Address<span class="star-required">*</span>
+                                        </label>
+                                        <textarea class="form-control" id="address" name="address"  maxlength="500" placeholder="Type address here..."></textarea>
+                                        <div class="form-text text-end">
+                                            <span class="textarea-count">0</span>/<span class="textarea-max">500</span>
+                                        </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="city" class="form-label">City<span class="star-required">*</span></label>
+                                    <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="state" class="form-label">State<span class="star-required">*</span></label>
+                                    <select class="form-select searchable-select" name="state" id="state" required>
+                                       <option value=""></option>
+                                        <option value="AN">Andaman and Nicobar Islands</option>
+                                        <option value="AP">Andhra Pradesh</option>
+                                        <option value="AR">Arunachal Pradesh</option>
+                                        <option value="AS">Assam</option>
+                                        <option value="BR">Bihar</option>
+                                        <option value="CH">Chandigarh</option>
+                                        <option value="CT">Chhattisgarh</option>
+                                        <option value="DD">Dadra and Nagar Haveli and Daman and Diu</option>
+                                        <option value="DL">Delhi</option>
+                                        <option value="GA">Goa</option>
+                                        <option value="GA">Gujarat</option>
+                                        <option value="HR">Haryana</option>
+                                        <option value="HP">Himachal Pradesh</option>
+                                        <option value="JK">Jammu and Kashmir</option>
+                                        <option value="JH">Jharkhand</option>
+                                        <option value="KA">Karnataka</option>
+                                        <option value="KL">Kerala</option>
+                                        <option value="LA">Ladakh</option>
+                                        <option value="LD">Lakshadweep</option>
+                                        <option value="MP">Madhya Pradesh</option>
+                                        <option value="MH">Maharashtra</option>
+                                        <option value="MN">Manipur</option>
+                                        <option value="ML">Meghalaya</option>
+                                        <option value="MZ">Mizoram</option>
+                                        <option value="NL">Nagaland</option>
+                                        <option value="OR">Odisha</option>
+                                        <option value="PY">Puducherry</option>
+                                        <option value="PB">Punjab</option>
+                                        <option value="RJ">Rajasthan</option>
+                                        <option value="SK">Sikkim</option>
+                                        <option value="TN">Tamil Nadu</option>
+                                        <option value="TG">Telangana</option>
+                                        <option value="TR">Tripura</option>
+                                        <option value="UT">Uttarakhand</option>
+                                        <option value="UP">Uttar Pradesh</option>
+                                        <option value="WB">West Bengal</option>
+                                   </select>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="pincode" class="form-label">Pincode<span class="star-required">*</span></label>
+                                    <input type="number" class="form-control" id="pincode" name="pincode" placeholder="Enter pincode" maxlength="6" required>
+                                </div>
+                                
+                                <div class="col-12 section-inner-heading">
+                                    <h4>Business Information</h4>                             
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="panNumber" class="form-label">Pan Number<span class="star-required">*</span></label>
+                                    <input type="text" class="form-control" id="panNumber" name="panNumber" maxlength="10" placeholder="10 Digits Only" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="gstNumber" class="form-label">GST Number</label>
+                                    <input type="text" class="form-control" id="gstNumber" name="gstNumber" maxlength="15" placeholder="15 Digits Only" required>
+                                </div>
+                                <div class="col-12 section-inner-heading">
+                                    <h4>Account Status</h4>                             
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label class="form-label">
+                                        Status <span class="star-required">*</span>
+                                    </label><br>
+                                    <div class="selectgroup selectgroup-primary selectgroup-pills">
+                                        <label class="selectgroup-item mb-2">
+                                          <input type="radio" name="status" value="active" class="selectgroup-input" id="status1" required="" checked>
+                                          <span class="selectgroup-button ">Active</span>
+                                        </label>
+                                        <label class="selectgroup-item mb-2">
+                                          <input type="radio" name="status" value="inactive" class="selectgroup-input" id="status2" required="">
+                                          <span class="selectgroup-button">Inactive</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                            </div>                                     
+
+                        </div>
+
+                        <div class="tab-pane fade" id="accounts" role="tabpanel" aria-labelledby="accounts-tab">
+                            <div class="section-heading">
+                                <p>
+                                    Vendor Business banking information
+                                </p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="bankName" class="form-label">Bank Name<span class="star-required">*</span></label>
+                                    <select class="form-select searchable-select" name="bankName" id="bankName" required>
+                                       <option value=""></option>
+                                        <option value="AIRTEL PAYMENT BANK">AIRTEL PAYMENT BANK</option>
+                                        <option value="ALLAHABAD BANK">ALLAHABAD BANK</option>
+                                        <option value="ANDB">ANDB</option>
+                                        <option value="ANDHRA BANK">ANDHRA BANK</option>
+                                        <option value="AU SMALL FINANCE BANK">AU SMALL FINANCE BANK</option>
+                                        <option value="AXIS BANK">AXIS BANK</option>
+                                        <option value="BANDHAN BANK">BANDHAN BANK</option>
+                                        <option value="BANK OF BARODA">BANK OF BARODA</option>
+                                        <option value="BANK OF INDIA">BANK OF INDIA</option>
+                                        <option value="BANK OF MAHARASHTRA">BANK OF MAHARASHTRA</option>
+                                        <option value="BOI">BOI</option>
+                                        <option value="CANARA BANK">CANARA BANK</option>
+                                        <option value="CENTRAL BANK OF INDIA">CENTRAL BANK OF INDIA</option>
+                                        <option value="CNRB">CNRB</option>
+                                        <option value="CORPORATION BANK">CORPORATION BANK</option>
+                                        <option value="DCB BANK">DCB BANK</option>
+                                        <option value="DENA BANK">DENA BANK</option>
+                                        <option value="EQUITAS SMALL FINANCE BANK">EQUITAS SMALL FINANCE BANK</option>
+                                        <option value="FEDERAL BANK">FEDERAL BANK</option>
+                                        <option value="FINO PAYMENT BANK LIMITED ">FINO PAYMENT BANK LIMITED </option>
+                                        <option value="HDFC">HDFC</option>
+                                        <option value="ICICI BANK">ICICI BANK</option>
+                                        <option value="IDBI">IDBI</option>
+                                        <option value="IDFC FIRST BANK">IDFC FIRST BANK</option>
+                                        <option value="INDIAN BANK">INDIAN BANK</option>
+                                        <option value="INDIAN OVERSEAS BANK">INDIAN OVERSEAS BANK</option>
+                                        <option value="INDINA POST PAYMENTS BANK">INDINA POST PAYMENTS BANK</option>
+                                        <option value="INDUSIND BANK">INDUSIND BANK</option>
+                                        <option value="JGB">JGB</option>
+                                        <option value="KARNATAKA BANK">KARNATAKA BANK</option>
+                                        <option value="KOTAK MAHINDRA BANK">KOTAK MAHINDRA BANK</option>
+                                        <option value="MADHYA BIHAR GRAMIN BANK">MADHYA BIHAR GRAMIN BANK</option>
+                                        <option value="MYBANK">MYBANK</option>
+                                        <option value="ORIENTAL BANK OF COMMERCE">ORIENTAL BANK OF COMMERCE</option>
+                                        <option value="PNB">PNB</option>
+                                        <option value="PUNJAB &amp; SIND BANK">PUNJAB &amp; SIND BANK</option>
+                                        <option value="RAJASTHAN MARUDHARA GRAMIN BANK">RAJASTHAN MARUDHARA GRAMIN BANK</option>
+                                        <option value="SOUTH INDIAN BANK">SOUTH INDIAN BANK</option>
+                                        <option value="STATE BANK OF INDIA">STATE BANK OF INDIA</option>
+                                        <option value="SWISS BANK OF INDIA">SWISS BANK OF INDIA</option>
+                                        <option value="SYNDICATE BANK">SYNDICATE BANK</option>
+                                        <option value=" THE NAINITAL BANK LIMITED"> THE NAINITAL BANK LIMITED</option>
+                                        <option value="UBI">UBI</option>
+                                        <option value="UCO BANK">UCO BANK</option>
+                                        <option value="UDAIPUR CENTRAL CO OP BANK LTD">UDAIPUR CENTRAL CO OP BANK LTD</option>
+                                        <option value="UDAIPUR MAHILA URBAN COOPERATIVE BANK LIMITED ">UDAIPUR MAHILA URBAN COOPERATIVE BANK LIMITED </option>
+                                        <option value="UDAIPUR URBAN COOPERATIVE BANK">UDAIPUR URBAN COOPERATIVE BANK</option>
+                                        <option value="UNION BANK OF INDIA">UNION BANK OF INDIA</option>
+                                        <option value="UNITED BANK OF INIDA">UNITED BANK OF INIDA</option>
+                                        <option value="UNITED COMMUNITY BANK">UNITED COMMUNITY BANK</option>
+                                        <option value="UNITED TRUST BANK">UNITED TRUST BANK</option>
+                                        <option value="UTBI">UTBI</option>
+                                        <option value="UTKARSH SMALL FINANCE BANK ">UTKARSH SMALL FINANCE BANK </option>
+                                        <option value="UTTAR BIHAR GRAMIN BANK">UTTAR BIHAR GRAMIN BANK</option>
+                                        <option value="Vananchal Gramin Bank">Vananchal Gramin Bank</option>
+                                        <option value="VIJAYA BANK">VIJAYA BANK</option>
+                                        <option value="YES BANK">YES BANK</option>
+                                   </select>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="bankBranch" class="form-label">Bank Branch<span class="star-required">*</span></label>
+                                    <input type="text" class="form-control" id="bankBranch" name="bankBranch" placeholder="Enter bank branch" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="bankAccountNumber" class="form-label">Bank Account Number<span class="star-required">*</span></label>
+                                    <input type="number" class="form-control" id="bankAccountNumber" name="bankAccountNumber" placeholder="Enter bank account number" required>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="ifscCode" class="form-label">IFSC Code<span class="star-required">*</span></label>
+                                    <input type="text" class="form-control" id="ifscCode" name="ifscCode" placeholder="Enter IFSC code" required>
+                                </div>
+                                <div class="col-12 mt-1 d-print-none">
+                                    <p class="text-end pt-2">
+                                        <button type="button" class="btn btn-primary btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"></path></svg>
+                                        </button>
+                                    </p>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+                            <div class="section-heading">
+                                <p>
+                                    Required documents
+                                </p>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label for="documentName" class="form-label">Document Name<span class="star-required">*</span></label>
+                                    <select class="form-select searchable-select" name="documentName" id="documentName" required>
+                                       <option value=""></option>
+                                       <option value="">VOTER CARD</option>
+                                       <option value="">AADHAR CARD</option>
+                                       <option value="">ACCOUNT DOC</option>
+                                       <option value="">JOINING LETTER</option>
+                                       <option value="">TERMINATION LETTER</option>
+                                       <option value="">PERMOTION LETTER</option>
+                                       <option value="">REJOINING LETTER</option>
+                                       <option value="">POST GRADUATE</option>
+                                       <option value="">PHD</option>
+                                       <option value="">ASSOCIATE DEGREE</option>
+                                       <option value="">BACHELOR'S DEGREE</option>
+                                       <option value="">GRADUATE</option>
+                                       <option value="">MATRIC DOC</option>
+                                       <option value="">INTERMEDIATE</option>
+                                       <option value="">CERTIFICATE</option>
+                                       <option value="">PAN CARD</option>
+                                   </select>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <label class="form-label">
+                                        Upload Document<span class="star-required">*</span>
+                                    </label>
+                                    <div class="file-upload">
+                                        <input type="file" id="fileInput" name="attachments" class="visually-hidden" accept=".jpg,.jpeg,.png,.pdf">
+                                        <label for="fileInput" class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="Upload file">
+                                            <div class="upload-icon">
+                                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 14.5C1 12.1716 2.22429 10.1291 4.06426 8.9812C4.56469 5.044 7.92686 2 12 2C16.0731 2 19.4353 5.044 19.9357 8.9812C21.7757 10.1291 23 12.1716 23 14.5C23 17.9216 20.3562 20.7257 17 20.9811L7 21C3.64378 20.7257 1 17.9216 1 14.5ZM16.8483 18.9868C19.1817 18.8093 21 16.8561 21 14.5C21 12.927 20.1884 11.4962 18.8771 10.6781L18.0714 10.1754L17.9517 9.23338C17.5735 6.25803 15.0288 4 12 4C8.97116 4 6.42647 6.25803 6.0483 9.23338L5.92856 10.1754L5.12288 10.6781C3.81156 11.4962 3 12.927 3 14.5C3 16.8561 4.81833 18.8093 7.1517 18.9868L7.325 19H16.675L16.8483 18.9868ZM13 13V17H11V13H8L12 8L16 13H13Z"></path></svg>
+                                            </div>
+                                            <div class="drop-zone-title">
+                                                Drag & drop file here
+                                            </div>
+                                            <div class="drop-zone-text">
+                                                or click to browse files
+                                                <br>
+                                                PNG, JPG, JPEG, PDF up to 2 MB
+                                            </div>
+                                        </label>
+                                        <div class="preview"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <div class="textarea-counter-wrapper">
+                                        <label for="remark" class="form-label">
+                                            Remark
+                                        </label>
+                                        <textarea class="form-control" id="remark" name="remark"  maxlength="300" placeholder="Type remark here..." required></textarea>
+                                        <div class="form-text text-end">
+                                            <span class="textarea-count">0</span>/<span class="textarea-max">300</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-1 d-print-none">
+                                    <p class="text-end pt-2">
+                                        <button type="button" class="btn btn-primary btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Add">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm my-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove">
+                                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z"></path></svg>
+                                        </button>
+                                    </p>
+                                </div> 
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-footer mt-4 d-print-none">
+                        <p class="text-center pt-2">
+                            <button type="submit" class="btn btn-primary btn-sm">Next</button>
+                        </p>
+                    </div>              
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+</main>
+{% endblock %}
